@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bc40efy8a55jg"]
+
+[ext_resource type="FontFile" uid="uid://tfvx0ks4x4o3" path="res://Fonts/Roboto-Medium.ttf" id="1_it0lv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h2wq8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_is32q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_basyx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0bxl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tf6hl"]
+
+[resource]
+default_font = ExtResource("1_it0lv")
+default_font_size = 36
+Button/colors/font_color = Color(0.435294, 0.435294, 0.435294, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_h2wq8")
+Button/styles/focus = SubResource("StyleBoxEmpty_is32q")
+Button/styles/hover = SubResource("StyleBoxEmpty_basyx")
+Button/styles/normal = SubResource("StyleBoxEmpty_x0bxl")
+Button/styles/pressed = SubResource("StyleBoxEmpty_tf6hl")
