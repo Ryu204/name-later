@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cri525ra7jkoc"]
+
+[ext_resource type="Texture2D" uid="uid://divpcx67wjdl7" path="res://Textures/button_play.png" id="1_27wau"]
+[ext_resource type="Script" path="res://Layouts/pause.gd" id="1_ie3ei"]
+[ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="2_qqo4q"]
+
+[node name="Pause" type="Node"]
+script = ExtResource("1_ie3ei")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.219608)
+
+[node name="Resume" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_27wau")
+
+[node name="Exit" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -88.0
+offset_right = 29.5
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_qqo4q")
+text = "Exit"

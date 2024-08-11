@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuw40d8kilgde"]
+[gd_scene load_steps=5 format=3 uid="uid://cuw40d8kilgde"]
 
 [ext_resource type="Script" path="res://Layouts/main_menu.gd" id="1_jrvax"]
 [ext_resource type="Script" path="res://Components/player.gd" id="2_6f634"]
+[ext_resource type="PackedScene" uid="uid://bsc36qwwucx16" path="res://Components/background.tscn" id="2_nl44m"]
 [ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="3_qqh6f"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_jrvax")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" parent="CanvasLayer" instance=ExtResource("2_nl44m")]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
