@@ -6,3 +6,5 @@
 script = ExtResource("1_7w13u")
 
 [node name="Layouts" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
