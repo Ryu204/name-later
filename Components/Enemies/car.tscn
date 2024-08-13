@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1ksvw8nx017i"]
+
+[ext_resource type="Script" path="res://Components/Enemies/car.gd" id="1_aruwy"]
+[ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_hiawl"]
+
+[node name="Car" type="Node"]
+script = ExtResource("1_aruwy")
+width = 35.0
+
+[node name="Shape" parent="." instance=ExtResource("2_hiawl")]
+color = Color(0, 1, 0.623529, 1)
+turn_strength = 15.0
+force = 200.0
+damping = 0.4

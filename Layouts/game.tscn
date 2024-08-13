@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk2vvgija1483"]
+[gd_scene load_steps=8 format=3 uid="uid://bkrjsx2q53cp2"]
 
-[ext_resource type="Script" path="res://Layouts/game.gd" id="1_rv118"]
-[ext_resource type="Texture2D" uid="uid://cg8y4h0b4rinm" path="res://Textures/button_pause.png" id="2_1db81"]
-[ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="3_l2tyn"]
-[ext_resource type="PackedScene" uid="uid://bit1yaadtv7i" path="res://Components/joystick.tscn" id="4_shr35"]
-[ext_resource type="Texture2D" uid="uid://csnksmmsbhq5c" path="res://Textures/background.png" id="5_4fiqx"]
+[ext_resource type="Texture2D" uid="uid://cg8y4h0b4rinm" path="res://Textures/button_pause.png" id="1_2cyyj"]
+[ext_resource type="Script" path="res://Layouts/game.gd" id="1_pwcpb"]
+[ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="2_yl7tb"]
+[ext_resource type="PackedScene" uid="uid://bit1yaadtv7i" path="res://Components/joystick.tscn" id="3_vmjwi"]
+[ext_resource type="Texture2D" uid="uid://csnksmmsbhq5c" path="res://Textures/background.png" id="4_a4tjm"]
+[ext_resource type="PackedScene" uid="uid://d15dv55or5iyv" path="res://Components/Player/player.tscn" id="6_klyhy"]
+[ext_resource type="PackedScene" uid="uid://dcgisaekr00fh" path="res://Components/enemy_manager.tscn" id="7_qbvme"]
 
 [node name="Game" type="Node"]
-script = ExtResource("1_rv118")
+script = ExtResource("1_pwcpb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -15,26 +17,26 @@ script = ExtResource("1_rv118")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -48.0
-offset_top = 20.0
-offset_right = -18.0
-offset_bottom = 60.0
+offset_left = -51.0
+offset_top = 19.0
+offset_right = -21.0
+offset_bottom = 59.0
 grow_horizontal = 0
-texture_normal = ExtResource("2_1db81")
+texture_normal = ExtResource("1_2cyyj")
 
 [node name="Score" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -30.0
-offset_top = 30.0
+offset_top = 19.0
 offset_right = 30.0
-offset_bottom = 73.0
+offset_bottom = 62.0
 grow_horizontal = 2
-theme = ExtResource("3_l2tyn")
+theme = ExtResource("2_yl7tb")
 text = "119"
 
-[node name="Joystick" parent="CanvasLayer" instance=ExtResource("4_shr35")]
+[node name="Joystick" parent="CanvasLayer" instance=ExtResource("3_vmjwi")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -45,6 +47,9 @@ offset_bottom = -121.0
 grow_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-31.5, 50.5)
-scale = Vector2(5.0525, 3.1275)
-texture = ExtResource("5_4fiqx")
+scale = Vector2(3.1875, 1.96115)
+texture = ExtResource("4_a4tjm")
+
+[node name="Player" parent="." instance=ExtResource("6_klyhy")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("7_qbvme")]

@@ -27,3 +27,6 @@ func _physics_process(_delta: float) -> void:
 func set_control_callback(callback: Callable) -> void:
 	_control_callback = callback
 	_control_callback_set = true
+
+func report_position() -> Vector2:
+	return _shape.position

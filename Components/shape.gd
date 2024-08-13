@@ -24,7 +24,6 @@ var control_direction: Vector2:
 			control_direction = value.normalized()
 
 var _vertices_pos: PackedVector2Array
-var _rotation = 0.0
 var _direction = Vector2.ZERO
 var _speed = 0.0
 var _is_controlled = false
@@ -36,7 +35,6 @@ func set_vertices(vertices_pos: PackedVector2Array) -> void:
 	_vertices_pos.append(_vertices_pos[0])
 
 func _draw() -> void:
-	draw_set_transform(Vector2.ZERO, _rotation)
 	draw_polyline(_vertices_pos, color, width, true)
 
 func _physics_process(delta: float) -> void:
@@ -50,4 +48,4 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	assert(_vertices_pos.size() > 2, 'Forget to set vertices for shape')
 	queue_redraw()
-	_rotation = velocity.angle() + PI / 2
+	rotation = velocity.angle() + PI / 2
