@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d15dv55or5iyv"]
+
+[ext_resource type="Script" path="res://Components/Player/player.gd" id="1_70rwg"]
+[ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_ut277"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_70rwg")
+
+[node name="Shape" parent="." instance=ExtResource("2_ut277")]
+width = 1.0
+turn_strength = 5.0
+force = 300.0
+damping = 0.2

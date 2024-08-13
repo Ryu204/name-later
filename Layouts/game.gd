@@ -7,9 +7,11 @@ func _ready() -> void:
 	pause_button.pressed.connect(func(): 
 		push_requested.emit(preload(PAUSE).instantiate())
 	)
-	add_child(_build_player())
+	var player = _build_player()
+	add_child(player)
+	assert(player.get_child_count(false) > 0)
 
 func _build_player() -> Player:
-	var player = Player.new()
-	player.control_callback = Callable(joystick, 'get_value')
+	var player = preload(Constants.SCENE_PLAYER).instantiate()
+	player.set_control_callback(Callable(joystick, 'get_value'))
 	return player

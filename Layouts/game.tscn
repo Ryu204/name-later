@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://dk2vvgija1483"]
 
-[ext_resource type="Script" path="res://Layouts/game.gd" id="1_ltuuq"]
-[ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="3_c26tr"]
-[ext_resource type="Texture2D" uid="uid://cg8y4h0b4rinm" path="res://Textures/button_pause.png" id="3_mk4wc"]
-[ext_resource type="PackedScene" uid="uid://bit1yaadtv7i" path="res://Components/joystick.tscn" id="4_dyq2f"]
-[ext_resource type="Texture2D" uid="uid://csnksmmsbhq5c" path="res://Textures/background.png" id="5_jodre"]
+[ext_resource type="Script" path="res://Layouts/game.gd" id="1_rv118"]
+[ext_resource type="Texture2D" uid="uid://cg8y4h0b4rinm" path="res://Textures/button_pause.png" id="2_1db81"]
+[ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="3_l2tyn"]
+[ext_resource type="PackedScene" uid="uid://bit1yaadtv7i" path="res://Components/joystick.tscn" id="4_shr35"]
+[ext_resource type="Texture2D" uid="uid://csnksmmsbhq5c" path="res://Textures/background.png" id="5_4fiqx"]
 
 [node name="Game" type="Node"]
-script = ExtResource("1_ltuuq")
+script = ExtResource("1_rv118")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -20,7 +20,7 @@ offset_top = 20.0
 offset_right = -18.0
 offset_bottom = 60.0
 grow_horizontal = 0
-texture_normal = ExtResource("3_mk4wc")
+texture_normal = ExtResource("2_1db81")
 
 [node name="Score" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
@@ -31,12 +31,20 @@ offset_top = 30.0
 offset_right = 30.0
 offset_bottom = 73.0
 grow_horizontal = 2
-theme = ExtResource("3_c26tr")
+theme = ExtResource("3_l2tyn")
 text = "119"
 
-[node name="Joystick" parent="CanvasLayer" instance=ExtResource("4_dyq2f")]
+[node name="Joystick" parent="CanvasLayer" instance=ExtResource("4_shr35")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 164.0
+offset_top = -121.0
+offset_right = 164.0
+offset_bottom = -121.0
+grow_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-31.5, 50.5)
 scale = Vector2(5.0525, 3.1275)
-texture = ExtResource("5_jodre")
+texture = ExtResource("5_4fiqx")

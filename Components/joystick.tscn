@@ -1,17 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bit1yaadtv7i"]
 
-[ext_resource type="Script" path="res://Components/Joystick.gd" id="1_qlw8h"]
+[ext_resource type="Script" path="res://Components/joystick.gd" id="1_qlw8h"]
 
 [node name="Joystick" type="Control"]
 layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 164.0
-offset_top = -121.0
-offset_right = 164.0
-offset_bottom = -121.0
-grow_vertical = 0
+anchors_preset = 0
 script = ExtResource("1_qlw8h")
 outer_radius = 72.0
 inner_radius = 36.0
+tolerance = 40.0
