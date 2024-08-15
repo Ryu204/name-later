@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vyxt354l20i1"]
+
+[ext_resource type="Script" path="res://Components/environment_manager.gd" id="1_hrbh2"]
+
+[node name="EnvironmentManager" type="Node"]
+script = ExtResource("1_hrbh2")

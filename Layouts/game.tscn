@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkrjsx2q53cp2"]
+[gd_scene load_steps=9 format=3 uid="uid://bkrjsx2q53cp2"]
 
 [ext_resource type="Texture2D" uid="uid://cg8y4h0b4rinm" path="res://Textures/button_pause.png" id="1_2cyyj"]
 [ext_resource type="Script" path="res://Layouts/game.gd" id="1_pwcpb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://csnksmmsbhq5c" path="res://Textures/background.png" id="4_a4tjm"]
 [ext_resource type="PackedScene" uid="uid://d15dv55or5iyv" path="res://Components/Player/player.tscn" id="6_klyhy"]
 [ext_resource type="PackedScene" uid="uid://dcgisaekr00fh" path="res://Components/enemy_manager.tscn" id="7_qbvme"]
+[ext_resource type="PackedScene" uid="uid://vyxt354l20i1" path="res://Components/environment_manager.tscn" id="8_sisi1"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_pwcpb")
@@ -50,6 +51,9 @@ grow_vertical = 0
 scale = Vector2(3.1875, 1.96115)
 texture = ExtResource("4_a4tjm")
 
-[node name="Player" parent="." instance=ExtResource("6_klyhy")]
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_qbvme")]
+player = NodePath("../Player")
 
-[node name="EnemySpawner" parent="." instance=ExtResource("7_qbvme")]
+[node name="EnvironmentManager" parent="." instance=ExtResource("8_sisi1")]
+
+[node name="Player" parent="." instance=ExtResource("6_klyhy")]

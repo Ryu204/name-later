@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://Components/Enemies/car.gd" id="1_aruwy"]
 [ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_hiawl"]
 
-[node name="Car" type="Node"]
+[node name="Car" type="Node2D" node_paths=PackedStringArray("shape")]
 script = ExtResource("1_aruwy")
 width = 35.0
+shape = NodePath("Shape")
 
 [node name="Shape" parent="." instance=ExtResource("2_hiawl")]
 color = Color(0, 1, 0.623529, 1)

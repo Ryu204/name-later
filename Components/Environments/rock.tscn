@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://buwnyx4t311i3"]
+
+[ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="1_rke06"]
+[ext_resource type="Script" path="res://Components/Environments/rock.gd" id="1_xkat3"]
+
+[node name="Rock" type="Node2D" node_paths=PackedStringArray("shape")]
+script = ExtResource("1_xkat3")
+shape = NodePath("Shape")
+
+[node name="Shape" parent="." instance=ExtResource("1_rke06")]
+color = Color(1, 0.0588235, 0, 1)
+force = 1.0
+damping = 1.0
