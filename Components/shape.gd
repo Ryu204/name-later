@@ -2,8 +2,6 @@ class_name Shape
 
 extends CharacterBody2D
 
-signal destroyed
-
 @export_group('Appearance')
 @export var color = Color.WHITE
 @export var width = Constants.GAME_OBJECT_LINE_WIDTH
@@ -14,53 +12,34 @@ signal destroyed
 
 @onready var _collision_shape = $CollisionPolygon2D
 
-enum State {
-	INIT, ACTIVE, DEAD
-}
- 
-var _state: State
+signal destroyed
+
 var _vertices_pos: PackedVector2Array
 var _direction = Vector2.ZERO
 var _speed = 0.0
 var _is_controlled = false
+var _is_queued_destroy = false
 
-func _ready() -> void:
-	_state = State.INIT
-	_collision_shape.disabled = true
-
-func enable() -> void:
-	assert(_vertices_pos.size() > 2, 'Have you set the shape\'s vertices?')
-	_collision_shape.disabled = false
-	_state = State.ACTIVE
-
-# Controlling entity wants this shape to go this way
-var control_direction: Vector2:
-	set(value):
-		if _state != State.ACTIVE:
-			return
-		if value.length_squared() < Constants.EPSILON:
-			_is_controlled = false
-			control_direction = Vector2.ZERO
-		else:
-			_is_controlled = true
-			control_direction = value.normalized()
-
-var state: State:
-	get: 
-		return _state
-
-func set_vertices(vertices_pos: PackedVector2Array) -> void:
-	assert(_state == State.INIT, 'Can only set vertices at init stage')
-	assert(vertices_pos.size() > 2, 'Invalid vertices list')
-	_vertices_pos = vertices_pos
+func set_vertices(points: PackedVector2Array) -> void:
+	assert(points.size() > 2, 'Insufficient vertices count')
+	_vertices_pos = points
 	_collision_shape.polygon = _vertices_pos
 	_vertices_pos.append(_vertices_pos[0])
 
-func _draw() -> void:
-	draw_polyline(_vertices_pos, color, width, true)
+var control_direction: Vector2:
+	set(value):
+		_is_controlled = value.length_squared() > Constants.EPSILON
+		if _is_controlled:
+			control_direction = value.normalized()
+		else:
+			control_direction = Vector2.ZERO
+
+func _process(_delta: float) -> void:
+	queue_redraw()
+	rotation = velocity.angle() + PI / 2
 
 func _physics_process(delta: float) -> void:
-	if _state != State.ACTIVE:
+	if _is_queued_destroy:
 		return
 	if _is_controlled:
 		_direction = velocity.normalized().lerp(turn_strength * control_direction, delta).normalized()
@@ -69,12 +48,6 @@ func _physics_process(delta: float) -> void:
 	velocity = _speed * _direction
 	move_and_slide()
 	_check_collisions()
-
-func _process(_delta: float) -> void:
-	if _state != State.ACTIVE:
-		return
-	queue_redraw()
-	rotation = velocity.angle() + PI / 2
 
 func _check_collisions() -> void:
 	var count = get_slide_collision_count()
@@ -91,12 +64,22 @@ func _check_collisions() -> void:
 			return
 
 func _queue_destroy() -> void:
-	if _state == State.DEAD:
+	if _is_queued_destroy:
 		return
+	_is_queued_destroy = true
+
 	var explosion = preload(Constants.SCENE_EXPLOSION).instantiate()
-	explosion.on_finish.connect(func():
+	explosion.primary_color = color
+	explosion.secondary_color = Color.WHITE
+	add_child(explosion)
+
+	explosion.finished.connect(func():
 		destroyed.emit()
 		queue_free()
 	)
-	add_child(explosion)
-	_state = State.DEAD
+	
+	_collision_shape.disabled = true
+	color.a = 0
+
+func _draw() -> void:
+	draw_polyline(_vertices_pos, color, width, true)

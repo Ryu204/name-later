@@ -4,54 +4,18 @@
 
 [sub_resource type="Animation" id="Animation_wquxp"]
 resource_name = "Explosion"
-length = 1.3
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:radius")
+tracks/0/path = NodePath(".:anim_delta")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.406126, 2.14355),
 "update": 0,
-"values": [0.0, 40.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 0, 1), Color(1, 0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:color_alt")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 0, 0, 1), Color(1, 0.568627, 0, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:radius_alt")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 30.0]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w3uln"]
@@ -61,10 +25,10 @@ _data = {
 
 [node name="Explosion" type="Node2D"]
 script = ExtResource("1_nnahl")
-color = Color(1, 0, 0, 0)
-color_alt = Color(1, 0.568627, 0, 1)
-radius = 40.0
-radius_alt = 30.0
+primary_radius = 50.0
+secondary_radius = 30.0
+primary_offset = Vector2(-5, 8)
+anim_delta = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

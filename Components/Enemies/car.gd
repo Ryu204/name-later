@@ -7,6 +7,7 @@ extends ShapeHolder
 @export var width = 50.0
 
 func _ready() -> void:
+	super()
 	shape.set_vertices(PackedVector2Array([
 		Vector2(-width / 2, height / 2),
 		Vector2(-width / 3, -height / 5),
@@ -14,9 +15,6 @@ func _ready() -> void:
 		Vector2(width / 3, -height / 5),
 		Vector2(width / 2, height / 2)
 	]))
-	super()
 
 func update(_delta: float, player_pos: Vector2) -> void:
-	if not shape_alive:
-		return
 	shape.control_direction = player_pos - shape.global_position

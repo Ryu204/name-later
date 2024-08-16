@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Components/shape.gd" id="1_tapq0"]
 
 [node name="Shape" type="CharacterBody2D"]
+position = Vector2(-1, 0)
 script = ExtResource("1_tapq0")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
