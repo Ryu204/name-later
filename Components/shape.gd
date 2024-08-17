@@ -70,7 +70,7 @@ func _queue_destroy() -> void:
 
 	var explosion = preload(Constants.SCENE_EXPLOSION).instantiate()
 	explosion.primary_color = color
-	explosion.secondary_color = Color.WHITE
+	explosion.secondary_color = lerp(color, Color.RED, 0.5)
 	add_child(explosion)
 
 	explosion.finished.connect(func():
@@ -78,7 +78,6 @@ func _queue_destroy() -> void:
 		queue_free()
 	)
 	
-	_collision_shape.disabled = true
 	color.a = 0
 
 func _draw() -> void:

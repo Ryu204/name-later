@@ -8,6 +8,6 @@ script = ExtResource("1_70rwg")
 shape = NodePath("Shape")
 
 [node name="Shape" parent="." instance=ExtResource("2_ut277")]
-turn_strength = 5.0
+turn_strength = 4.0
 force = 500.0
 damping = 0.2

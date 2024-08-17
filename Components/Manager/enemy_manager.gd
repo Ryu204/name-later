@@ -1,4 +1,4 @@
-extends Node
+extends Spawner
 
 @export var player: Player
 var _is_player_dead = false
@@ -6,13 +6,13 @@ var _is_player_dead = false
 func _ready() -> void:
 	assert(is_instance_valid(player), 'Forgot to set player')
 	player.destroyed.connect(func(): _is_player_dead = true)
-	# TODO: remove those naughty spawns
-	var car = preload(Constants.SCENE_CAR).instantiate()
-	var car2 = preload(Constants.SCENE_CAR).instantiate()
-	car.position = Vector2(350, -150)
-	add_child(car)
-	car2.position = Vector2(-500, 250)
-	add_child(car2)
+	
+	initialize(
+		Spawner.spawn_amount_log_callback(0, .5),
+		Spawner.spawn_level_random_callback,
+		Spawner.spawn_position_rect_callback()
+	)
+	add_spawnable(preload(Constants.SCENE_CAR))
 
 func _process(delta: float) -> void:
 	_process_child(delta)

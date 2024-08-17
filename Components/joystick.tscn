@@ -6,6 +6,6 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_qlw8h")
-outer_radius = 72.0
-inner_radius = 36.0
-tolerance = 40.0
+outer_radius = 84.0
+inner_radius = 50.0
+tolerance = 30.0

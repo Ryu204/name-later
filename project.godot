@@ -12,13 +12,13 @@ config_version=5
 
 config/name="name_later"
 run/main_scene="res://Layouts/index.tscn"
-config/features=PackedStringArray("4.2", "GL Compatibility")
+config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=932
-window/size/viewport_height=430
+window/size/viewport_width=1100
+window/size/viewport_height=500
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"

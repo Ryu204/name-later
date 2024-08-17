@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bit1yaadtv7i" path="res://Components/joystick.tscn" id="3_vmjwi"]
 [ext_resource type="Texture2D" uid="uid://csnksmmsbhq5c" path="res://Textures/background.png" id="4_a4tjm"]
 [ext_resource type="PackedScene" uid="uid://d15dv55or5iyv" path="res://Components/Player/player.tscn" id="6_klyhy"]
-[ext_resource type="PackedScene" uid="uid://dcgisaekr00fh" path="res://Components/enemy_manager.tscn" id="7_qbvme"]
+[ext_resource type="PackedScene" uid="uid://dcgisaekr00fh" path="res://Components/Manager/enemy_manager.tscn" id="7_qbvme"]
 [ext_resource type="PackedScene" uid="uid://vyxt354l20i1" path="res://Components/environment_manager.tscn" id="8_sisi1"]
 
 [node name="Game" type="Node"]
@@ -41,10 +41,10 @@ text = "119"
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 164.0
-offset_top = -121.0
-offset_right = 164.0
-offset_bottom = -121.0
+offset_left = 203.435
+offset_top = -147.035
+offset_right = 203.435
+offset_bottom = -147.035
 grow_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
