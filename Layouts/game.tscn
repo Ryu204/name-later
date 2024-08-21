@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkrjsx2q53cp2"]
+[gd_scene load_steps=10 format=3 uid="uid://bkrjsx2q53cp2"]
 
 [ext_resource type="Texture2D" uid="uid://cg8y4h0b4rinm" path="res://Textures/button_pause.png" id="1_2cyyj"]
 [ext_resource type="Script" path="res://Layouts/game.gd" id="1_pwcpb"]
 [ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="2_yl7tb"]
 [ext_resource type="PackedScene" uid="uid://bit1yaadtv7i" path="res://Components/joystick.tscn" id="3_vmjwi"]
 [ext_resource type="Texture2D" uid="uid://csnksmmsbhq5c" path="res://Textures/background.png" id="4_a4tjm"]
+[ext_resource type="Script" path="res://Scripts/minimap.gd" id="5_2eeet"]
 [ext_resource type="PackedScene" uid="uid://d15dv55or5iyv" path="res://Components/Player/player.tscn" id="6_klyhy"]
 [ext_resource type="PackedScene" uid="uid://dcgisaekr00fh" path="res://Components/Manager/enemy_manager.tscn" id="7_qbvme"]
-[ext_resource type="PackedScene" uid="uid://vyxt354l20i1" path="res://Components/environment_manager.tscn" id="8_sisi1"]
+[ext_resource type="PackedScene" uid="uid://vyxt354l20i1" path="res://Components/Manager/environment_manager.tscn" id="8_sisi1"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_pwcpb")
@@ -47,6 +48,24 @@ offset_right = 203.435
 offset_bottom = -147.035
 grow_vertical = 0
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 140.0
+offset_bottom = 140.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" node_paths=PackedStringArray("main_camera", "map_camera")]
+handle_input_locally = false
+size = Vector2i(100, 100)
+render_target_update_mode = 4
+script = ExtResource("5_2eeet")
+main_camera = NodePath("../../../Camera2D")
+map_camera = NodePath("Camera2D")
+zoom = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(3.1875, 1.96115)
 texture = ExtResource("4_a4tjm")
@@ -57,3 +76,10 @@ player = NodePath("../Player")
 [node name="EnvironmentManager" parent="." instance=ExtResource("8_sisi1")]
 
 [node name="Player" parent="." instance=ExtResource("6_klyhy")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Camera2D"]
+remote_path = NodePath("../../CanvasLayer/SubViewportContainer/SubViewport/Camera2D")

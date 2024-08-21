@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfj21agyf0b47"]
+[gd_scene load_steps=3 format=3 uid="uid://cfj21agyf0b47"]
 
 [ext_resource type="Script" path="res://Components/shape.gd" id="1_tapq0"]
+[ext_resource type="Script" path="res://Scripts/minimap_element.gd" id="2_3rmpf"]
 
 [node name="Shape" type="CharacterBody2D"]
 position = Vector2(-1, 0)
 script = ExtResource("1_tapq0")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="MinimapElement" type="Node2D" parent="."]
+visibility_layer = 2
+script = ExtResource("2_3rmpf")
+size = 40.0

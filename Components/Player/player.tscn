@@ -11,3 +11,6 @@ shape = NodePath("Shape")
 turn_strength = 4.0
 force = 500.0
 damping = 0.2
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Shape"]
+position = Vector2(1, 0)

@@ -1,8 +1,9 @@
-extends Node2D
+extends App
 
 @onready var layouts = $Layouts
 
 func _ready() -> void:
+	super()
 	_on_layout_push(preload(Layout.MAIN_MENU).instantiate())
 
 func _on_layout_clear() -> void:

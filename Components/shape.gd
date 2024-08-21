@@ -11,6 +11,7 @@ extends CharacterBody2D
 @export var damping: float
 
 @onready var _collision_shape = $CollisionPolygon2D
+@onready var _minimap_element = $MinimapElement
 
 signal destroyed
 
@@ -19,6 +20,9 @@ var _direction = Vector2.ZERO
 var _speed = 0.0
 var _is_controlled = false
 var _is_queued_destroy = false
+
+func _ready() -> void:
+	_minimap_element.color = color
 
 func set_vertices(points: PackedVector2Array) -> void:
 	assert(points.size() > 2, 'Insufficient vertices count')
