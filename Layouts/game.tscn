@@ -73,7 +73,8 @@ texture = ExtResource("4_a4tjm")
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_qbvme")]
 player = NodePath("../Player")
 
-[node name="EnvironmentManager" parent="." instance=ExtResource("8_sisi1")]
+[node name="EnvironmentManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_sisi1")]
+player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("6_klyhy")]
 

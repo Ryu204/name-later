@@ -10,7 +10,8 @@ func _ready() -> void:
 	initialize(
 		Spawner.spawn_amount_log_callback(0, .5),
 		Spawner.spawn_level_random_callback,
-		Spawner.spawn_position_rect_callback()
+		Spawner.spawn_position_rect_callback(),
+		Spawner.spawn_offset_player_callback(player)
 	)
 	add_spawnable(preload(Constants.SCENE_CAR))
 

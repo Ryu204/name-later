@@ -6,7 +6,7 @@ var spawnables_list: Array[PackedScene] = []
 var spawn_amount_callback: Callable
 var spawn_level_callback: Callable
 var spawn_position_callback: Callable
-var spawn_offset = Vector2.ZERO
+var spawn_offset_callback: Callable
 
 var _current_time = 0.0
 var _pending_time = 0.0
@@ -15,10 +15,12 @@ func initialize(
 	amount_callback: Callable,
 	level_callback: Callable,
 	position_callback: Callable,
+	offset_callback: Callable,
 ) -> void:
 	spawn_amount_callback = amount_callback
 	spawn_level_callback = level_callback
 	spawn_position_callback = position_callback
+	spawn_offset_callback = offset_callback
 
 func add_spawnable(node: PackedScene) -> void:
 	spawnables_list.append(node)
@@ -33,7 +35,7 @@ func _physics_process(delta: float) -> void:
 
 func _spawn() -> void:
 	var viewport_world_size = get_viewport().get_visible_rect().size
-	var spawn_position = (spawn_position_callback.call(viewport_world_size) as Vector2) + spawn_offset
+	var spawn_position = (spawn_position_callback.call(viewport_world_size) as Vector2) + spawn_offset_callback.call()
 	
 	var type_index = lerp(0.0, float(spawnables_list.size()), spawn_level_callback.call(_current_time))
 	var spawned = spawnables_list[type_index].instantiate()
@@ -76,3 +78,14 @@ static func spawn_amount_log_callback(start_time: float, scale: float) -> Callab
 
 static var spawn_level_random_callback = func(_time: float) -> float:
 	return randf()
+
+static func spawn_offset_player_callback(player: Player) -> Callable:
+	assert(is_instance_valid(player), 'Player must be a valid node')
+	var alive = [true] # Use reference type to capture in lambda
+	player.destroyed.connect(func(): alive[0] = false)
+	var last_pos = player.report_position()
+	
+	return func() -> Vector2:
+		if alive[0]:
+			last_pos = player.report_position()
+		return last_pos
