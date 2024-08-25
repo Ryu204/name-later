@@ -82,10 +82,9 @@ static var spawn_level_random_callback = func(_time: float) -> float:
 static func spawn_offset_player_callback(player: Player) -> Callable:
 	assert(is_instance_valid(player), 'Player must be a valid node')
 	var alive = [true] # Use reference type to capture in lambda
+	var cb = player.report_position
 	player.destroyed.connect(func(): alive[0] = false)
-	var last_pos = player.report_position()
 	
 	return func() -> Vector2:
-		if alive[0]:
-			last_pos = player.report_position()
-		return last_pos
+		return cb.call() if alive[0] else Vector2.ZERO
+ 

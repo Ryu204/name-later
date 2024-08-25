@@ -53,6 +53,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_check_collisions()
 
+func average_speed(time: float) -> float:
+	var dt = get_physics_process_delta_time()
+	var n = ceilf(time / dt)
+	var damping_dt = pow(damping, dt)
+	
+	return force * dt * (1 - (1 - pow(damping_dt, n)) / n / (1 - damping_dt)) / (1 - damping_dt)
+
 func _check_collisions() -> void:
 	var count = get_slide_collision_count()
 	if count == 0:

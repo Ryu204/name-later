@@ -5,11 +5,12 @@
 
 [node name="Car" type="Node2D" node_paths=PackedStringArray("shape")]
 script = ExtResource("1_aruwy")
-width = 35.0
+height = 25.0
+width = 25.0
 shape = NodePath("Shape")
 
 [node name="Shape" parent="." instance=ExtResource("2_hiawl")]
 color = Color(0, 1, 0.623529, 1)
-turn_strength = 15.0
-force = 200.0
+turn_strength = 13.0
+force = 130.0
 damping = 0.4

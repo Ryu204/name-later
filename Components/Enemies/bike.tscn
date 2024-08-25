@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://card8htoxjwwp"]
+
+[ext_resource type="Script" path="res://Components/Enemies/bike.gd" id="1_k0pwh"]
+[ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_7go5m"]
+
+[node name="Bike" type="Node2D" node_paths=PackedStringArray("shape")]
+script = ExtResource("1_k0pwh")
+height = 40.0
+width = 16.0
+think_interval = 3.0
+run_interval = 1.0
+fluctuation_level = 0.4
+shape = NodePath("Shape")
+
+[node name="Shape" parent="." instance=ExtResource("2_7go5m")]
+color = Color(0, 0.721569, 1, 1)
+turn_strength = 5.0
+force = 900.0
+damping = 0.2

@@ -28,3 +28,6 @@ func _physics_process(_delta: float) -> void:
 
 func report_position() -> Vector2:
 	return shape.global_position
+
+func report_velocity() -> Vector2:
+	return shape.velocity

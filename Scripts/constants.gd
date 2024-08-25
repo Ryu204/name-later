@@ -4,6 +4,7 @@ const _COMPONENT_PREFIX = 'res://Components/%s'
 const SCENE_SHAPE = _COMPONENT_PREFIX % 'shape.tscn'
 const SCENE_PLAYER = _COMPONENT_PREFIX % 'Player/player.tscn'
 const SCENE_CAR = _COMPONENT_PREFIX % 'Enemies/car.tscn'
+const SCENE_BIKE = _COMPONENT_PREFIX % 'Enemies/bike.tscn'
 const SCENE_ROCK = _COMPONENT_PREFIX % 'Environments/rock.tscn'
 const SCENE_EXPLOSION = _COMPONENT_PREFIX % 'explosion.tscn'
 
