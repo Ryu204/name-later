@@ -76,6 +76,10 @@ static func spawn_amount_log_callback(start_time: float, scale: float) -> Callab
 			1 + max(0, time - start_time)
 		)
 
+static func spawn_amount_sine_callback(scale: float, omega: float = 0.2 * TAU) -> Callable:
+	return func(time: float) -> float:
+		return scale * abs(sin(time * omega))
+
 static var spawn_level_random_callback = func(_time: float) -> float:
 	return randf()
 

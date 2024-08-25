@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgt0u3b8vog5k"]
+
+[ext_resource type="Script" path="res://Components/Enemies/bike_pro.gd" id="1_mpfrg"]
+[ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_f3dvc"]
+
+[node name="BikePro" type="Node2D" node_paths=PackedStringArray("shape")]
+script = ExtResource("1_mpfrg")
+angular_force = 2.0
+height = 45.0
+width = 12.0
+think_interval = 2.2
+run_interval = 0.8
+fluctuation_level = 0.2
+shape = NodePath("Shape")
+
+[node name="Shape" parent="." instance=ExtResource("2_f3dvc")]
+color = Color(0.741176, 0, 1, 1)
+turn_strength = 8.0
+force = 900.0
+damping = 0.2

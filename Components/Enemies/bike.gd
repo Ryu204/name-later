@@ -40,6 +40,7 @@ func update(_delta: float, player_pos: Vector2, player_vel: Vector2) -> void:
 
 func _launch(player_pos: Vector2, player_vel: Vector2) -> void:
 	shape.force = _initial_force
+	# We solve a quadratic equation to calculate collision time assuming player_vel will not change
 	var p = player_pos - shape.global_position
 	var time_to_collision = MoreMath.solve_quadratic(
 		player_vel.length_squared() - (shape.average_speed(max(run_interval, 3)) ** 2),
@@ -50,10 +51,13 @@ func _launch(player_pos: Vector2, player_vel: Vector2) -> void:
 		time_to_collision.roots.max() > 0, 
 		'Maybe the shape velocity is too low to catch player?')
 	time_to_collision = time_to_collision.roots.max()
-	var direction = player_pos + time_to_collision * player_vel - shape.global_position
-	shape.control_direction = MoreMath.add_noise_vector2(direction, fluctuation_level)
+	_go_to(player_pos + time_to_collision * player_vel)
 
 func _indicate_attack(player_pos: Vector2, player_vel: Vector2) -> void:
 	var direction = player_pos + player_vel * run_interval * randf() - shape.global_position
 	shape.force = 0.0
+	shape.control_direction = MoreMath.add_noise_vector2(direction, fluctuation_level)
+
+func _go_to(goal: Vector2) -> void:
+	var direction = goal - shape.global_position
 	shape.control_direction = MoreMath.add_noise_vector2(direction, fluctuation_level)

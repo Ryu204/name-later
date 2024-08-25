@@ -15,6 +15,7 @@ func _ready() -> void:
 	)
 	add_spawnable(preload(Constants.SCENE_CAR))
 	add_spawnable(preload(Constants.SCENE_BIKE))
+	add_spawnable(preload(Constants.SCENE_BIKE_PRO))
 
 func _process(delta: float) -> void:
 	_process_child(delta)

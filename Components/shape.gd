@@ -24,10 +24,13 @@ var _is_queued_destroy = false
 func _ready() -> void:
 	_minimap_element.color = color
 
-func set_vertices(points: PackedVector2Array) -> void:
+func set_vertices(
+	points: PackedVector2Array, 
+	collision_points: PackedVector2Array = []
+) -> void:
 	assert(points.size() > 2, 'Insufficient vertices count')
 	_vertices_pos = points
-	_collision_shape.polygon = _vertices_pos
+	_collision_shape.polygon = _vertices_pos if collision_points.size() == 0 else collision_points
 	_vertices_pos.append(_vertices_pos[0])
 
 var control_direction: Vector2:
