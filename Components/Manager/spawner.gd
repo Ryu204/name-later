@@ -7,9 +7,12 @@ var spawn_amount_callback: Callable
 var spawn_level_callback: Callable
 var spawn_position_callback: Callable
 var spawn_offset_callback: Callable
+var spawnables_holder: Node = self
 
 var _current_time = 0.0
 var _pending_time = 0.0
+
+signal prespawn(node: Node)
 
 func initialize(
 	amount_callback: Callable,
@@ -40,7 +43,8 @@ func _spawn() -> void:
 	var type_index = lerp(0.0, float(spawnables_list.size()), spawn_level_callback.call(_current_time))
 	var spawned = spawnables_list[type_index].instantiate()
 	spawned.position = spawn_position
-	add_child(spawned)
+	prespawn.emit(spawned)
+	spawnables_holder.add_child(spawned)
 
 static func spawn_position_arc_callback(margin_ratio = 0.2, thickness_ratio = 1.0) -> Callable:
 	return func(size: Vector2) -> Vector2:

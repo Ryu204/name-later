@@ -2,6 +2,8 @@ extends Spawner
 
 @export var player: Player
 var _is_player_dead = false
+@onready var _spawnables_holder = $SpawnablesHolder
+@onready var _drone_holders = $DronesHolder
 
 func _ready() -> void:
 	assert(is_instance_valid(player), 'Forgot to set player')
@@ -13,9 +15,14 @@ func _ready() -> void:
 		Spawner.spawn_position_rect_callback(),
 		Spawner.spawn_offset_player_callback(player)
 	)
-	add_spawnable(preload(Constants.SCENE_CAR))
-	add_spawnable(preload(Constants.SCENE_BIKE))
-	add_spawnable(preload(Constants.SCENE_BIKE_PRO))
+	
+	spawnables_holder = _spawnables_holder
+	prespawn.connect(_check_and_initialize_drone_leader)
+	
+	#add_spawnable(preload(Constants.SCENE_CAR))
+	#add_spawnable(preload(Constants.SCENE_BIKE))
+	#add_spawnable(preload(Constants.SCENE_BIKE_PRO))
+	add_spawnable(preload(Constants.SCENE_DRONE))
 
 func _process(delta: float) -> void:
 	_process_child(delta)
@@ -25,6 +32,11 @@ func _process_child(delta: float) -> void:
 		return
 	var player_pos = player.report_position()
 	var player_vel = player.report_velocity()
-	for child in get_children():
+	for child in spawnables_holder.get_children():
 		assert(child is Enemy, 'Must be subtype of enemy')
 		child.update(delta, player_pos, player_vel)
+
+func _check_and_initialize_drone_leader(node: Node) -> void:
+	if node is Drone:
+		var drone = node as Drone
+		drone.initialize(_drone_holders)

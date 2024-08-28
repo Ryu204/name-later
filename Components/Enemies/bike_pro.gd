@@ -5,7 +5,6 @@ extends Bike
 @export_group('Stats')
 @export var angular_force = 0.0
 
-
 var _is_left_handed = MoreMath.random_number() < 0.5
 
 func _ready() -> void:

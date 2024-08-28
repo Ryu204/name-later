@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwaku0altjhci"]
+
+[ext_resource type="Script" path="res://Components/Enemies/drone.gd" id="1_0rjqi"]
+[ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_odm6d"]
+
+[node name="Drone" type="Node2D" node_paths=PackedStringArray("shape")]
+script = ExtResource("1_0rjqi")
+width = 16
+shape = NodePath("Shape")
+
+[node name="Shape" parent="." instance=ExtResource("2_odm6d")]
+color = Color(1, 0.898039, 0, 1)
+force = 300.0
+damping = 0.3

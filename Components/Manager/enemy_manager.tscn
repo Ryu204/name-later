@@ -4,3 +4,7 @@
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_tjc2g")
+
+[node name="DronesHolder" type="Node" parent="."]
+
+[node name="SpawnablesHolder" type="Node" parent="."]
