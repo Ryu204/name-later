@@ -7,11 +7,13 @@ extends SubViewport
 @export var zoom = 1.0
 
 func _ready() -> void:
-	var vp = App.get_global_viewport(self)
-	world_2d = vp.world_2d
-	var aspect = Vector2(
-		get_visible_rect().size.x / vp.get_visible_rect().size.x,
-		get_visible_rect().size.x / vp.get_visible_rect().size.x
-	)
-	var real_zoom = max(aspect.x, aspect.y) / zoom
+	var vp = main_camera.get_viewport()
+	#var aspect = Vector2(
+		#get_visible_rect().size.x / vp.get_visible_rect().size.x,
+		#get_visible_rect().size.y / vp.get_visible_rect().size.y
+	#)
+	var aspect = get_visible_rect().size / vp.get_visible_rect().size * main_camera.zoom * zoom
+	var real_zoom = min(aspect.x, aspect.y)
+	
 	map_camera.zoom = Vector2(real_zoom, real_zoom)
+	world_2d = vp.world_2d

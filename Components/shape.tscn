@@ -12,4 +12,4 @@ script = ExtResource("1_tapq0")
 [node name="MinimapElement" type="Node2D" parent="."]
 visibility_layer = 2
 script = ExtResource("2_3rmpf")
-size = 40.0
+size = 45.0

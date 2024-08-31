@@ -94,5 +94,8 @@ func _queue_destroy() -> void:
 	
 	color.a = 0
 
+func is_queued_for_destroy() -> bool:
+	return _is_queued_destroy
+
 func _draw() -> void:
 	draw_polyline(_vertices_pos, color, width, true)

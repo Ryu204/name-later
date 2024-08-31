@@ -10,5 +10,5 @@ shape = NodePath("Shape")
 
 [node name="Shape" parent="." instance=ExtResource("2_odm6d")]
 color = Color(1, 0.898039, 0, 1)
-force = 300.0
+force = 100.0
 damping = 0.3
