@@ -6,7 +6,7 @@ extends Layout
 func _ready() -> void:
 	exit_button.pressed.connect(func():
 		clear_requested.emit()
-		push_requested.emit(preload(MAIN_MENU).instantiate())
+		push_requested.emit(load(MAIN_MENU).instantiate())
 	)
 	cancel_button.pressed.connect(func():
 		pop_requested.emit()
