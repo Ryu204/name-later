@@ -19,12 +19,13 @@ func _ready() -> void:
 	spawnables_holder = _spawnables_holder
 	prespawn.connect(_check_and_initialize_drone_leader)
 	
-	#add_spawnable(preload(Constants.SCENE_CAR))
-	#add_spawnable(preload(Constants.SCENE_BIKE))
-	#add_spawnable(preload(Constants.SCENE_BIKE_PRO))
+	add_spawnable(preload(Constants.SCENE_CAR))
+	add_spawnable(preload(Constants.SCENE_BIKE))
+	add_spawnable(preload(Constants.SCENE_BIKE_PRO))
 	add_spawnable(preload(Constants.SCENE_DRONE))
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	super(delta)
 	_process_child(delta)
 
 func _process_child(delta: float) -> void:
