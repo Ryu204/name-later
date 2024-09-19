@@ -7,6 +7,7 @@ const SCENE_CAR = _COMPONENT_PREFIX % 'Enemies/car.tscn'
 const SCENE_BIKE = _COMPONENT_PREFIX % 'Enemies/bike.tscn'
 const SCENE_BIKE_PRO = _COMPONENT_PREFIX % 'Enemies/bike_pro.tscn'
 const SCENE_DRONE = _COMPONENT_PREFIX % 'Enemies/drone.tscn'
+const SCENE_MOTHERSHIP = _COMPONENT_PREFIX % 'Enemies/mothership.tscn'
 const SCENE_ROCK = _COMPONENT_PREFIX % 'Environments/rock.tscn'
 const SCENE_EXPLOSION = _COMPONENT_PREFIX % 'explosion.tscn'
 

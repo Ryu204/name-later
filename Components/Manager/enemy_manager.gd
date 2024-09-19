@@ -23,6 +23,7 @@ func _ready() -> void:
 	add_spawnable(preload(Constants.SCENE_BIKE))
 	add_spawnable(preload(Constants.SCENE_BIKE_PRO))
 	add_spawnable(preload(Constants.SCENE_DRONE))
+	add_spawnable(preload(Constants.SCENE_MOTHERSHIP))
 
 func _physics_process(delta: float) -> void:
 	super(delta)
