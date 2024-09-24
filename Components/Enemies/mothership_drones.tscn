@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://p7vaff2uutdj"]
+[gd_scene load_steps=4 format=3 uid="uid://p7vaff2uutdj"]
 
 [ext_resource type="Script" path="res://Components/Enemies/mothership_drones.gd" id="1_qtfgt"]
 [ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_o4u85"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_faqx0"]
+radius = 26.6833
 
 [node name="MothershipDrones" type="Node2D"]
 script = ExtResource("1_qtfgt")
@@ -9,6 +12,7 @@ width = 15.0
 height = 15.0
 spacing_per_width = 2.0
 base_ratio = 1.1
+victim_search_radius = 300.0
 
 [node name="Drone1" parent="." instance=ExtResource("2_o4u85")]
 color = Color(0.607843, 0.321569, 0.262745, 1)
@@ -23,3 +27,8 @@ color = Color(0.607843, 0.321569, 0.262745, 1)
 [node name="Drone3" parent="." instance=ExtResource("2_o4u85")]
 position = Vector2(-3, 0)
 color = Color(0.607843, 0.321569, 0.262745, 1)
+
+[node name="_Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="_Detector"]
+shape = SubResource("CircleShape2D_faqx0")
