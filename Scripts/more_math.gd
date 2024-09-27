@@ -46,3 +46,6 @@ static func solve_quadratic(a: float, b: float, c: float) -> QuadraticRoots:
 		return res
 	res.status = RootStatus.NONE
 	return res
+
+static func angle_wrap(from: float, to: float):
+	return fmod(to - from + 999 * PI, 2 * PI) - PI

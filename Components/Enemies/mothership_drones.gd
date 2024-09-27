@@ -28,8 +28,7 @@ func _ready() -> void:
 		shape.set_vertices(PackedVector2Array([
 			Vector2(-width / 2, height / 2),
 			Vector2(width / 2, height / 2),
-			Vector2(width / 2, -height / 2),
-			Vector2(-width / 2, -height / 2)
+			Vector2(0, -height / 2)
 		]))
 		shape.force = mothership.force * base_ratio
 		shape.turn_strength = mothership.turn_strength * base_ratio * 2.0
