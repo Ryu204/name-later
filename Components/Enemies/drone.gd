@@ -43,7 +43,6 @@ func update(delta: float, player_pos: Vector2, _player_vel: Vector2) -> void:
 	assert(_is_leader, 'Only leader is allowed to update directly')
 	shape.color = shape.color.lerp(LEADER_COLOR, 0.2 * delta)
 	shape.control_direction = player_pos - shape.global_position
-	var nunderlings = _underlings.size()
 	_underlings.push_back(self)
 	for underling in _underlings:
 		if not underling._is_leader:
@@ -63,12 +62,12 @@ static func _get_separation_strength(underlings: Array[Drone], boid: Drone) -> S
 	var result = Separation.new()
 	result.angle = 0.0
 	result.force = 1.0
-	var position = boid.shape.global_position
+	var pos = boid.shape.global_position
 	for other in underlings:
-		var is_same = other.get_instance_id() == boid.get_instance_id()
-		if is_same:
+		var is_same_boid = other.get_instance_id() == boid.get_instance_id()
+		if is_same_boid:
 			continue
-		var direction = other.shape.global_position - position
+		var direction = other.shape.global_position - pos
 		var distance = direction.length()
 		var is_too_far = distance > boid._absolute_size * VISION_RATIO
 		if is_too_far:

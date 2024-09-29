@@ -39,4 +39,4 @@ func _on_hit(sh: Shape) -> void:
 			queue_free() 
 	)
 	visible = false
-	monitoring = false
+	set_deferred('monitoring', false)
