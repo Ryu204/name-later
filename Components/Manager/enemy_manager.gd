@@ -40,6 +40,6 @@ func _process_child(delta: float) -> void:
 		child.update(delta, player_pos, player_vel)
 
 func _initialize_drone_classes(node: Node) -> void:
-	var is_drone_class = node is Drone or node is Mothership
+	var is_drone_class = node is Drone or node is Mothership or node is Tank
 	if is_drone_class:
 		node.initialize(_drone_holders)
