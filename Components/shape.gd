@@ -14,6 +14,7 @@ extends CharacterBody2D
 @onready var _minimap_element = $MinimapElement
 
 signal destroyed
+signal crashed
 
 var _vertices_pos: PackedVector2Array
 var _direction = Vector2.ZERO
@@ -93,6 +94,7 @@ func _queue_destroy() -> void:
 	)
 	
 	color.a = 0
+	crashed.emit()
 
 func is_queued_for_destroy() -> bool:
 	return _is_queued_destroy

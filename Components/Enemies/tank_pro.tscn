@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0j78wh5ftwuv"]
+
+[ext_resource type="PackedScene" uid="uid://s1o8xwq3cuj5" path="res://Components/Enemies/tank.tscn" id="1_4pnfh"]
+[ext_resource type="PackedScene" uid="uid://cx1q61i5e1gmd" path="res://Components/Enemies/bullet_explosion.tscn" id="2_xyssb"]
+
+[node name="Tank" instance=ExtResource("1_4pnfh")]
+height = 35.0
+intervals_per_shot = 7
+max_shooting_distance = 700.0
+bullet = ExtResource("2_xyssb")
+
+[node name="Shape" parent="." index="0"]
+color = Color(0, 1, 1, 1)

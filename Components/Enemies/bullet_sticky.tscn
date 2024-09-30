@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhicmyrq7l42w"]
+
+[ext_resource type="Script" path="res://Components/Enemies/bullet_sticky.gd" id="1_47xws"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d6tfx"]
+
+[node name="BulletSticky" type="Area2D"]
+script = ExtResource("1_47xws")
+color = Color(1, 0, 0.839216, 1)
+effect = 0.65
+duration = 2.0
+speed = 500
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d6tfx")

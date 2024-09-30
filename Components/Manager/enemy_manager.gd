@@ -17,12 +17,15 @@ func _ready() -> void:
 	)
 	
 	spawnables_holder = _spawnables_holder
-	prespawn.connect(_check_and_initialize_drone_leader)
+	prespawn.connect(_initialize_drone_classes)
 	
 	add_spawnable(preload(Constants.SCENE_CAR))
 	add_spawnable(preload(Constants.SCENE_BIKE))
 	add_spawnable(preload(Constants.SCENE_BIKE_PRO))
 	add_spawnable(preload(Constants.SCENE_DRONE))
+	add_spawnable(preload(Constants.SCENE_MOTHERSHIP))
+	add_spawnable(preload(Constants.SCENE_TANK))
+	add_spawnable(preload(Constants.SCENE_TANK_PRO))
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -37,7 +40,7 @@ func _process_child(delta: float) -> void:
 		assert(child is Enemy, 'Must be subtype of enemy')
 		child.update(delta, player_pos, player_vel)
 
-func _check_and_initialize_drone_leader(node: Node) -> void:
-	if node is Drone:
-		var drone = node as Drone
-		drone.initialize(_drone_holders)
+func _initialize_drone_classes(node: Node) -> void:
+	var is_drone_class = node is Drone or node is Mothership or node is Tank
+	if is_drone_class:
+		node.initialize(_drone_holders)

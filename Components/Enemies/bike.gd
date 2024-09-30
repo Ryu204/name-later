@@ -47,9 +47,8 @@ func _launch(player_pos: Vector2, player_vel: Vector2) -> void:
 		2 * player_vel.dot(p),
 		p.length_squared()
 	)
-	assert(time_to_collision.status == MoreMath.RootStatus.OK and\
-		time_to_collision.roots.max() > 0, 
-		'Maybe the shape velocity is too low to catch player?')
+	if time_to_collision.status != MoreMath.RootStatus.OK:
+		return
 	time_to_collision = time_to_collision.roots.max()
 	_go_to(player_pos + time_to_collision * player_vel)
 

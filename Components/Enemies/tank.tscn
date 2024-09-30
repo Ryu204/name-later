@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://s1o8xwq3cuj5"]
+
+[ext_resource type="Script" path="res://Components/Enemies/tank.gd" id="1_u5f4h"]
+[ext_resource type="PackedScene" uid="uid://dhicmyrq7l42w" path="res://Components/Enemies/bullet_sticky.tscn" id="2_26gw7"]
+[ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_ijcn0"]
+[ext_resource type="Script" path="res://Components/Enemies/tank_barrel.gd" id="3_5rpkp"]
+
+[node name="Tank" type="Node2D" node_paths=PackedStringArray("shape")]
+script = ExtResource("1_u5f4h")
+height = 40.0
+width = 30.0
+max_shooting_distance = 1000.0
+bullet = ExtResource("2_26gw7")
+shape = NodePath("Shape")
+
+[node name="Shape" parent="." instance=ExtResource("2_ijcn0")]
+color = Color(1, 0, 0.839216, 1)
+turn_strength = 2.0
+force = 300.0
+damping = 0.15
+
+[node name="Barrel" type="Node2D" parent="Shape"]
+position = Vector2(1, 0)
+script = ExtResource("3_5rpkp")
+angular_speed = 1.571

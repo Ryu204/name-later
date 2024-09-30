@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnwecgg8gilqx"]
+
+[ext_resource type="Script" path="res://Components/Enemies/mothership.gd" id="1_7mk6c"]
+[ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_rp4to"]
+[ext_resource type="PackedScene" uid="uid://p7vaff2uutdj" path="res://Components/Enemies/mothership_drones.tscn" id="3_j77u6"]
+
+[node name="Mothership" type="Node2D" node_paths=PackedStringArray("shape")]
+script = ExtResource("1_7mk6c")
+width = 35.0
+shape = NodePath("Shape")
+
+[node name="Shape" parent="." instance=ExtResource("2_rp4to")]
+color = Color(0.571362, 0.413173, 0.342973, 1)
+turn_strength = 2.0
+force = 100.0
+damping = 0.6
+
+[node name="MothershipDrones" parent="." node_paths=PackedStringArray("mothership") instance=ExtResource("3_j77u6")]
+mothership = NodePath("../Shape")
