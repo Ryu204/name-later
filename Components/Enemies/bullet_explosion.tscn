@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx1q61i5e1gmd"]
+
+[ext_resource type="Script" path="res://Components/Enemies/bullet_explosion.gd" id="1_behtg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0fnk"]
+
+[node name="BulletExplosion" type="Area2D"]
+gravity_space_override = 1
+gravity = 1500.0
+script = ExtResource("1_behtg")
+color = Color(0, 1, 1, 1)
+size = 15.0
+expansion_ratio = 20.0
+speed = 650
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k0fnk")
+debug_color = Color(0.672823, 0.406527, 0.78663, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
