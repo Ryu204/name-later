@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://njx1mf8wljsn"]
+
+[ext_resource type="PackedScene" uid="uid://cgv3p1jekge4o" path="res://Components/Environments/mud.tscn" id="1_m1vsw"]
+
+[node name="Mud" instance=ExtResource("1_m1vsw")]
+color = Color(0.425294, 0.881702, 0.958351, 0.490196)
+radius = 1000.0
+damping_ratio = 1.6
+turn_strength_ratio = 0.3

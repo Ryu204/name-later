@@ -17,6 +17,7 @@ func _ready() -> void:
 	add_spawnable(preload(Constants.SCENE_TREE))
 	_non_area_spawn_count = 2
 	add_spawnable(preload(Constants.SCENE_MUD))
+	add_spawnable(preload(Constants.SCENE_ICE))
 	prespawn.connect(_add_random_rotation)
 
 func _add_random_rotation(node: Node) -> void:
