@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkc5h0ybqd077"]
+
+[ext_resource type="Script" path="res://Components/Enemies/car_drunk.gd" id="1_0kpqh"]
+[ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_33h6r"]
+
+[node name="CarDrunk" type="Node2D" node_paths=PackedStringArray("shape")]
+script = ExtResource("1_0kpqh")
+angular_force = 6.283
+switch_time = 0.3
+shape = NodePath("Shape")
+
+[node name="Shape" parent="." instance=ExtResource("2_33h6r")]
+color = Color(0.8, 1, 0, 1)
+turn_strength = 2.0
+force = 300.0
+damping = 0.4

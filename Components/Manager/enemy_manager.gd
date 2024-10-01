@@ -20,6 +20,7 @@ func _ready() -> void:
 	prespawn.connect(_initialize_drone_classes)
 	
 	add_spawnable(preload(Constants.SCENE_CAR))
+	add_spawnable(preload(Constants.SCENE_CAR_DRUNK))
 	add_spawnable(preload(Constants.SCENE_BIKE))
 	add_spawnable(preload(Constants.SCENE_BIKE_PRO))
 	add_spawnable(preload(Constants.SCENE_DRONE))
