@@ -40,7 +40,11 @@ func _spawn() -> void:
 	var viewport_world_size = get_viewport().get_visible_rect().size
 	var spawn_position = (spawn_position_callback.call(viewport_world_size) as Vector2) + spawn_offset_callback.call()
 	
-	var type_index = lerp(0.0, float(spawnables_list.size()), spawn_level_callback.call(_current_time))
+	var type_index = int(lerp(
+		0.0, 
+		float(spawnables_list.size()) - Constants.EPSILON, 
+		spawn_level_callback.call(_current_time)
+	))
 	var spawned = spawnables_list[type_index].instantiate()
 	spawned.position = spawn_position
 	prespawn.emit(spawned)

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bit1yaadtv7i" path="res://Components/joystick.tscn" id="3_vmjwi"]
 [ext_resource type="Script" path="res://Scripts/minimap.gd" id="5_2eeet"]
 [ext_resource type="PackedScene" uid="uid://d15dv55or5iyv" path="res://Components/Player/player.tscn" id="6_klyhy"]
-[ext_resource type="Texture2D" uid="uid://bw7w3dar1p84b" path="res://icon.svg" id="6_wk8vg"]
+[ext_resource type="Texture2D" uid="uid://csnksmmsbhq5c" path="res://Textures/background.png" id="6_so354"]
 [ext_resource type="PackedScene" uid="uid://dcgisaekr00fh" path="res://Components/Manager/enemy_manager.tscn" id="7_qbvme"]
 [ext_resource type="PackedScene" uid="uid://vyxt354l20i1" path="res://Components/Manager/environment_manager.tscn" id="8_sisi1"]
 
@@ -68,8 +68,8 @@ zoom = 0.9
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3.1875, 1.96115)
-texture = ExtResource("6_wk8vg")
+scale = Vector2(6.815, 4.52)
+texture = ExtResource("6_so354")
 region_rect = Rect2(74, 0, 326, 400)
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_qbvme")]

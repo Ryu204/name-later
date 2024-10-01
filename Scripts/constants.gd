@@ -13,6 +13,9 @@ const SCENE_TANK = _COMPONENT_PREFIX % 'Enemies/tank.tscn'
 const SCENE_TANK_PRO = _COMPONENT_PREFIX % 'Enemies/tank_pro.tscn'
 
 const SCENE_ROCK = _COMPONENT_PREFIX % 'Environments/rock.tscn'
+const SCENE_TREE = _COMPONENT_PREFIX % 'Environments/tree.tscn'
+const SCENE_MUD = _COMPONENT_PREFIX % 'Environments/mud.tscn'
+
 const SCENE_EXPLOSION = _COMPONENT_PREFIX % 'explosion.tscn'
 
 const GAME_OBJECT_LINE_WIDTH = 2.0

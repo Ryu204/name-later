@@ -47,5 +47,14 @@ static func solve_quadratic(a: float, b: float, c: float) -> QuadraticRoots:
 	res.status = RootStatus.NONE
 	return res
 
-static func angle_wrap(from: float, to: float):
+static func angle_wrap(from: float, to: float) -> float:
 	return fmod(to - from + 999 * PI, 2 * PI) - PI
+
+static func regluar_polygon(radius: float, n: int) -> PackedVector2Array:
+	assert(n > 2, 'Polygon must have more than 2 sides')
+	var angle_offset = PI / 2 * (n % 2)
+	var vertices = PackedVector2Array()
+	for i in range(n):
+		var angle = 2 * PI * i / n + angle_offset
+		vertices.append(Vector2(radius * cos(angle), radius * sin(angle)))
+	return vertices

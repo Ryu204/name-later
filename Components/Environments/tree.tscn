@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwvbhnqeo5qaq"]
+
+[ext_resource type="Script" path="res://Components/Environments/tree.gd" id="1_jhnxd"]
+[ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_ocyrm"]
+
+[node name="Tree" type="Node2D" node_paths=PackedStringArray("shape")]
+script = ExtResource("1_jhnxd")
+shape = NodePath("Shape")
+
+[node name="Shape" parent="." instance=ExtResource("2_ocyrm")]
+color = Color(6.8105e-06, 0.701049, 0, 1)
