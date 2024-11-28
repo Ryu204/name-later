@@ -10,6 +10,8 @@ extends CharacterBody2D
 @export var force: float
 @export var damping: float
 
+var force_multiplier: float = 1.0
+
 @onready var _collision_shape = $CollisionPolygon2D
 @onready var _minimap_element = $MinimapElement
 
@@ -51,18 +53,19 @@ func _physics_process(delta: float) -> void:
 		return
 	if _is_controlled:
 		_direction = velocity.normalized().lerp(turn_strength * control_direction, delta).normalized()
-		_speed += force * delta
+		_speed += force * force_multiplier * delta
 	_speed *= pow(damping, delta)
 	velocity = _speed * _direction
 	move_and_slide()
 	_check_collisions()
 
+# Heuristic approximation of the shape's speed if it moves in `time` seconds
 func average_speed(time: float) -> float:
 	var dt = get_physics_process_delta_time()
 	var n = ceilf(time / dt)
 	var damping_dt = pow(damping, dt)
 	
-	return force * dt * (1 - (1 - pow(damping_dt, n)) / n / (1 - damping_dt)) / (1 - damping_dt)
+	return force * force_multiplier * dt * (1 - (1 - pow(damping_dt, n)) / n / (1 - damping_dt)) / (1 - damping_dt)
 
 func _check_collisions() -> void:
 	var count = get_slide_collision_count()

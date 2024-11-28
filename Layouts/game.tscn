@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkrjsx2q53cp2"]
+[gd_scene load_steps=11 format=3 uid="uid://bkrjsx2q53cp2"]
 
 [ext_resource type="Texture2D" uid="uid://cg8y4h0b4rinm" path="res://Textures/button_pause.png" id="1_2cyyj"]
 [ext_resource type="Script" path="res://Layouts/game.gd" id="1_pwcpb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://csnksmmsbhq5c" path="res://Textures/background.png" id="6_so354"]
 [ext_resource type="PackedScene" uid="uid://dcgisaekr00fh" path="res://Components/Manager/enemy_manager.tscn" id="7_qbvme"]
 [ext_resource type="PackedScene" uid="uid://vyxt354l20i1" path="res://Components/Manager/environment_manager.tscn" id="8_sisi1"]
+[ext_resource type="Script" path="res://Components/Manager/powerup_manager.gd" id="9_mrtnv"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_pwcpb")
@@ -76,6 +77,10 @@ region_rect = Rect2(74, 0, 326, 400)
 player = NodePath("../Player")
 
 [node name="EnvironmentManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_sisi1")]
+player = NodePath("../Player")
+
+[node name="PowerupManager" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("9_mrtnv")
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("6_klyhy")]
