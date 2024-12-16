@@ -54,5 +54,6 @@ func _on_body_entered(body: PhysicsBody2D) -> void:
 	else:
 		self.visible = false
 		await get_tree().create_timer(powerup.duration).timeout
-		powerup.remove_from(player)
+		if is_instance_valid(player):
+			powerup.remove_from(player)
 		queue_free()
