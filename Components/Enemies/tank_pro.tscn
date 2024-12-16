@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cx1q61i5e1gmd" path="res://Components/Enemies/bullet_explosion.tscn" id="2_xyssb"]
 
 [node name="Tank" instance=ExtResource("1_4pnfh")]
+visibility_layer = 3
 height = 35.0
 intervals_per_shot = 7
 max_shooting_distance = 700.0

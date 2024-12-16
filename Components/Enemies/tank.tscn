@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Components/Enemies/tank_barrel.gd" id="3_5rpkp"]
 
 [node name="Tank" type="Node2D" node_paths=PackedStringArray("shape")]
+visibility_layer = 3
 script = ExtResource("1_u5f4h")
 height = 40.0
 width = 30.0
