@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/minimap_element.gd" id="2_3rmpf"]
 
 [node name="Shape" type="CharacterBody2D"]
+visibility_layer = 3
 position = Vector2(-1, 0)
 script = ExtResource("1_tapq0")
 

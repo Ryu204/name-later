@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Components/Environments/rock.gd" id="1_xkat3"]
 
 [node name="Rock" type="Node2D" node_paths=PackedStringArray("shape")]
+visibility_layer = 3
 script = ExtResource("1_xkat3")
 shape = NodePath("Shape")
 

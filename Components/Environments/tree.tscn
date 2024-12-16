@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cfj21agyf0b47" path="res://Components/shape.tscn" id="2_ocyrm"]
 
 [node name="Tree" type="Node2D" node_paths=PackedStringArray("shape")]
+visibility_layer = 3
 script = ExtResource("1_jhnxd")
 shape = NodePath("Shape")
 
