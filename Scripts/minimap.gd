@@ -4,6 +4,7 @@ extends SubViewport
 
 @export var main_camera: Camera2D
 @export var map_camera: Camera2D
+@export var minimap_control: SubViewportContainer
 @export var zoom = 1.0
 
 func _ready() -> void:
@@ -17,3 +18,6 @@ func _ready() -> void:
 	
 	map_camera.zoom = Vector2(real_zoom, real_zoom)
 	world_2d = vp.world_2d
+
+func set_radar_direction(dir: Vector2) -> void:
+	minimap_control.material.set_shader_parameter("direction", dir)
