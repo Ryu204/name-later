@@ -1,14 +1,181 @@
-[gd_scene load_steps=4 format=3 uid="uid://ex3bgv4hwixy"]
+[gd_scene load_steps=8 format=3 uid="uid://ex3bgv4hwixy"]
 
 [ext_resource type="Texture2D" uid="uid://bgogsg400aw2l" path="res://Textures/button_play_morphed.png" id="1_cy0fi"]
 [ext_resource type="Script" path="res://Layouts/exit_confirm.gd" id="1_nq60x"]
 [ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="2_uc8w2"]
+[ext_resource type="Texture2D" uid="uid://divpcx67wjdl7" path="res://Textures/button_play.png" id="4_75euo"]
+
+[sub_resource type="Animation" id="Animation_0itto"]
+resource_name = "morphing_play_button"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Resume:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 5.53423]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Resume:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3.215, 3.215)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Resume:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(508, 201), Vector2(539, 176)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Resume:self_modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.196078)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Resume/TextureRect:self_modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wg26b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Resume:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.54314]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Resume:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Resume:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(508, 201)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Resume:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Resume/TextureRect:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lsbm6"]
+_data = {
+"RESET": SubResource("Animation_wg26b"),
+"morphing_play_button": SubResource("Animation_0itto")
+}
 
 [node name="ExitConfirm" type="Node"]
 process_mode = 2
 script = ExtResource("1_nq60x")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Resume" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -49.0
+offset_right = 42.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 5.54314
+pivot_offset = Vector2(28, 46)
+texture = ExtResource("4_75euo")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Resume"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.432
+offset_top = -158.942
+offset_right = 168.568
+offset_bottom = 142.058
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.748735
+scale = Vector2(0.31, 0.31)
+pivot_offset = Vector2(102, 150)
+texture = ExtResource("1_cy0fi")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -17,20 +184,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.219608)
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -153.0
-offset_top = -150.5
-offset_right = 153.0
-offset_bottom = 150.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_cy0fi")
 
 [node name="Sure" type="Button" parent="CanvasLayer"]
 anchors_preset = 8
@@ -78,3 +231,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_uc8w2")
 text = "Progress will be lost"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lsbm6")
+}
+autoplay = "morphing_play_button"
+speed_scale = 2.0
