@@ -8,6 +8,7 @@ extends Layout
 
 func _ready() -> void:
 	_init_ui()
+	_init_gameplay()
 
 func _init_ui() -> void:
 	_pause_button.pressed.connect(func(): 
