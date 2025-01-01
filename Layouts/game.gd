@@ -17,6 +17,7 @@ func _ready() -> void:
 
 func _init_ui() -> void:
 	_pause_button.pressed.connect(func(): 
+		get_tree().paused = true
 		push_requested.emit(preload(PAUSE).instantiate())
 	)
 	_player.initialize(

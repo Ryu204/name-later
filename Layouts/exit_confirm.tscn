@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="2_uc8w2"]
 
 [node name="ExitConfirm" type="Node"]
+process_mode = 2
 script = ExtResource("1_nq60x")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

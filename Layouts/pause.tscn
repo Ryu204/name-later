@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="2_qqo4q"]
 
 [node name="Pause" type="Node"]
+process_mode = 2
 script = ExtResource("1_ie3ei")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

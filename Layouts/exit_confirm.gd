@@ -7,7 +7,9 @@ func _ready() -> void:
 	exit_button.pressed.connect(func():
 		clear_requested.emit()
 		push_requested.emit(load(MAIN_MENU).instantiate())
+		get_tree().paused = false
 	)
 	cancel_button.pressed.connect(func():
 		pop_requested.emit()
+		get_tree().paused = false
 	)

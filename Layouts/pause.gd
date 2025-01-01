@@ -10,4 +10,5 @@ func _ready() -> void:
 	)
 	resume_button.pressed.connect(func():
 		pop_requested.emit()
+		get_tree().paused = false
 	)
