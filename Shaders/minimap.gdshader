@@ -39,7 +39,7 @@ void fragment() {
     vec4 base_color = texture(TEXTURE, UV);
 
     // Set a default background if transparent
-    if (base_color.a <= 0.05) {
+    if (base_color.a <= 0.5) {
         base_color.rgb = vec3(0.1, 0.15, 0.1); // Green tone
         base_color.a = 1.0;
     }
