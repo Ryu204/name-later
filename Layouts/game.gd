@@ -5,7 +5,9 @@ extends Layout
 @onready var _player = $Player
 @onready var _camera = $Camera2D
 @onready var _powerup_manager = $PowerupManager
+@onready var _environment_manager = $EnvironmentManager
 @onready var _minimap = $CanvasLayer/Minimap/SubViewport
+@onready var _score = $CanvasLayer/Score
 
 var _is_player_alive: bool = true
 
@@ -24,10 +26,13 @@ func _init_ui() -> void:
 
 func _init_gameplay() -> void:
 	_player.destroyed.connect(func(): _is_player_alive = false)
-	# Actually, we wait for the score, but there is no score now so...
-	await get_tree().create_timer(10.0).timeout
-	
-	_powerup_manager.should_spawn = true
+	_score.event_reached.connect(func(type: Score.SCORE_EVENT):
+		match type:
+			Score.SCORE_EVENT.START_SPAWN_POWER_UP:
+				_powerup_manager.should_spawn = true
+			Score.SCORE_EVENT.START_SPAWN_AREA:
+				_environment_manager.should_spawn_area = true
+	)
 
 func _process(_delta: float) -> void:
 	if _is_player_alive:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkrjsx2q53cp2"]
+[gd_scene load_steps=14 format=3 uid="uid://bkrjsx2q53cp2"]
 
 [ext_resource type="Texture2D" uid="uid://cg8y4h0b4rinm" path="res://Textures/button_pause.png" id="1_2cyyj"]
 [ext_resource type="Script" path="res://Layouts/game.gd" id="1_pwcpb"]
 [ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="2_yl7tb"]
 [ext_resource type="PackedScene" uid="uid://bit1yaadtv7i" path="res://Components/joystick.tscn" id="3_vmjwi"]
+[ext_resource type="Script" path="res://Components/score.gd" id="4_fk0h6"]
 [ext_resource type="Script" path="res://Scripts/minimap.gd" id="5_2eeet"]
 [ext_resource type="Shader" path="res://Shaders/minimap.gdshader" id="6_clplf"]
 [ext_resource type="PackedScene" uid="uid://d15dv55or5iyv" path="res://Components/Player/player.tscn" id="6_klyhy"]
@@ -43,6 +44,7 @@ offset_bottom = 62.0
 grow_horizontal = 2
 theme = ExtResource("2_yl7tb")
 text = "119"
+script = ExtResource("4_fk0h6")
 
 [node name="Joystick" parent="CanvasLayer" instance=ExtResource("3_vmjwi")]
 anchors_preset = 2

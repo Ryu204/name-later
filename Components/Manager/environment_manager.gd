@@ -1,9 +1,9 @@
 extends Spawner
 
 @export var player: Player
-@export var start_area_spawn_time: float = 20.0
 @export var area_spawn_rate: float = 0.05
 
+var should_spawn_area: bool = false
 var _non_area_spawn_count: float
 
 func _ready() -> void:
@@ -25,10 +25,11 @@ func _add_random_rotation(node: Node) -> void:
 		return
 	node.rotation = MoreMath.random_number() * PI
 
-func _get_level(current_time: float) -> float:
-	if current_time < start_area_spawn_time:
+func _get_level(_time: float) -> float:
+	if not should_spawn_area:
 		return MoreMath.random_number() * (_non_area_spawn_count / spawnables_list.size() - Constants.EPSILON)
-	var spawn_area = MoreMath.random_number() < area_spawn_rate
-	if spawn_area:
+	
+	var will_spawn_area = MoreMath.random_number() < area_spawn_rate
+	if will_spawn_area:
 		return lerp(_non_area_spawn_count / spawnables_list.size(), 1.0, MoreMath.random_number())
 	return _non_area_spawn_count / spawnables_list.size() * MoreMath.random_number()
