@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cuw40d8kilgde"]
 
 [ext_resource type="Script" path="res://Layouts/main_menu.gd" id="1_jrvax"]
-[ext_resource type="PackedScene" uid="uid://bsc36qwwucx16" path="res://Components/background.tscn" id="2_nl44m"]
+[ext_resource type="PackedScene" uid="uid://c6ux3wsr8t3p" path="res://Components/Environments/star_background.tscn" id="2_tu67v"]
 [ext_resource type="PackedScene" uid="uid://d15dv55or5iyv" path="res://Components/Player/player.tscn" id="3_0bie5"]
 [ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="3_qqh6f"]
 
@@ -10,7 +10,7 @@ script = ExtResource("1_jrvax")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" parent="CanvasLayer" instance=ExtResource("2_nl44m")]
+[node name="StarBackground" parent="CanvasLayer" instance=ExtResource("2_tu67v")]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
