@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhp25xp8836wt"]
+[gd_scene load_steps=4 format=3 uid="uid://bhp25xp8836wt"]
 
 [ext_resource type="Shader" path="res://Shaders/blur.gdshader" id="1_cnsmv"]
+[ext_resource type="Script" path="res://Components/blur_background.gd" id="2_8byws"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ga63"]
 shader = ExtResource("1_cnsmv")
@@ -13,3 +14,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_8byws")
