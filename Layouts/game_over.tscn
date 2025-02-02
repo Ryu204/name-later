@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cftdc8v2egjcs"]
+
+[ext_resource type="Script" path="res://Layouts/game_over.gd" id="1_e0i1m"]
+[ext_resource type="Texture2D" uid="uid://caxd1saafiqk7" path="res://Textures/button_retry.png" id="1_qjuq2"]
+[ext_resource type="Texture2D" uid="uid://be1tajiq2ec6m" path="res://Textures/button_close.png" id="2_2loat"]
+[ext_resource type="PackedScene" uid="uid://bhp25xp8836wt" path="res://Components/blur_background.tscn" id="2_yu2qx"]
+[ext_resource type="Script" path="res://Scripts/rotate_on_hover.gd" id="3_hf1sx"]
+[ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="6_p6p3a"]
+
+[node name="GameOver" type="Node"]
+script = ExtResource("1_e0i1m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" parent="CanvasLayer" instance=ExtResource("2_yu2qx")]
+
+[node name="Retry" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -104.0
+offset_right = 104.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(104, 104)
+texture_normal = ExtResource("1_qjuq2")
+script = ExtResource("3_hf1sx")
+rotation_angle = 90.0
+tween_duration = 0.1
+
+[node name="Close" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 19.0
+offset_right = -20.0
+offset_bottom = 59.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_2loat")
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 19.0
+offset_right = 30.0
+offset_bottom = 62.0
+grow_horizontal = 2
+theme = ExtResource("6_p6p3a")
+text = "119"

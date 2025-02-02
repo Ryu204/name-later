@@ -26,3 +26,6 @@ func _increase() -> void:
 	text = str(_score)
 	if _score in _event_thresholds:
 		event_reached.emit(_event_thresholds[_score])
+
+func get_score() -> int:
+	return _score

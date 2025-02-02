@@ -4,6 +4,7 @@ extends Area2D
 
 @export_group('Appearance')
 @export var color: Color
+
 @export var radius = 100.0
 @export var ease_in_seconds = 4.0
 @export_group('Stats')

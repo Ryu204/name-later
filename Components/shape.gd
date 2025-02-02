@@ -19,7 +19,7 @@ signal destroyed
 signal crashed
 
 var _vertices_pos: PackedVector2Array
-var _direction = Vector2.ZERO
+var _direction = MoreMath.random_vector2()
 var _speed = 0.0
 var _is_controlled = false
 var _is_queued_destroy = false
@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 		_direction = velocity.normalized().lerp(turn_strength * control_direction, delta).normalized()
 		_speed += force * force_multiplier * delta
 	_speed *= pow(damping, delta)
-	velocity = _speed * _direction
+	velocity = max(Constants.EPSILON, _speed) * _direction
 	move_and_slide()
 	_check_collisions()
 

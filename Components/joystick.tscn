@@ -9,3 +9,8 @@ script = ExtResource("1_qlw8h")
 outer_radius = 84.0
 inner_radius = 50.0
 tolerance = 30.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

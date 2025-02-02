@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cri525ra7jkoc"]
+[gd_scene load_steps=5 format=3 uid="uid://cri525ra7jkoc"]
 
 [ext_resource type="Texture2D" uid="uid://divpcx67wjdl7" path="res://Textures/button_play.png" id="1_27wau"]
 [ext_resource type="Script" path="res://Layouts/pause.gd" id="1_ie3ei"]
+[ext_resource type="PackedScene" uid="uid://bhp25xp8836wt" path="res://Components/blur_background.tscn" id="2_q6ayb"]
 [ext_resource type="Theme" uid="uid://bc40efy8a55jg" path="res://Themes/main.tres" id="2_qqo4q"]
 
 [node name="Pause" type="Node"]
@@ -10,13 +11,7 @@ script = ExtResource("1_ie3ei")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.219608)
+[node name="ColorRect" parent="CanvasLayer" instance=ExtResource("2_q6ayb")]
 
 [node name="Resume" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 8

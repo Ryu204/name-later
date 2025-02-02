@@ -1,7 +1,7 @@
 extends Spawner
 
 @export var player: Player
-@export var area_spawn_rate: float = 0.05
+@export var area_spawn_rate: float = 1
 
 var should_spawn_area: bool = false
 var _non_area_spawn_count: float
